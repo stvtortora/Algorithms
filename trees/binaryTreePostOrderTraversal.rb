@@ -12,19 +12,19 @@
 # Output: [3,2,1]
 
 def postorder_traversal(root)
-    return [] unless root
-    node = root
-    stack = []
-    visited = []
+  return [] unless root
+  node = root
+  stack = []
+  visited = []
 
-    while !stack.empty? || node
-        if node
-            stack << node
-            visited << node.val
-            node = node.right
-        else
-          node = stack.pop.left
-        end
+  while !stack.empty? || node
+    if node
+      stack << node
+      visited << node.val
+      node = node.right
+    else
+      node = stack.pop.left
     end
-    visited.reverse
+  end
+  visited.reverse
 end

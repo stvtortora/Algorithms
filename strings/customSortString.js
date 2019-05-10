@@ -28,7 +28,8 @@ const customSortString = (S, T) => {
       if (idx[left[0]] < idx[right[0]]) {
         merged += left[0];
         left = left.slice(1);
-      } else {
+      }
+      else {
         merged += right[0];
         right = right.slice(1);
       }
@@ -62,7 +63,8 @@ const customSortString = (S, T) => {
     let letter = T[j];
     if (typeof sIdx[letter] !== 'undefined') {
       inS += letter;
-    } else {
+    }
+    else {
       others += letter;
     }
   }

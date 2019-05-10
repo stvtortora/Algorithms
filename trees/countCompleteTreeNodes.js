@@ -17,16 +17,16 @@
 // Output: 6
 
 const countNodes = (root) => {
-    let count = 0;
+  let count = 0;
 
-    const helper = (node) => {
-        if (node) {
-            count++;
-            helper(node.left);
-            helper(node.right);
-        }
+  const helper = (node) => {
+    if (node) {
+      count++;
+      helper(node.left);
+      helper(node.right);
     }
+  }
 
-    helper(root);
-    return count;
+  helper(root);
+  return count;
 };

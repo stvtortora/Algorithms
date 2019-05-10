@@ -13,19 +13,20 @@
 # Follow up: Recursive solution is trivial, could you do it iteratively?
 
 def inorder_traversal(root)
-    return [] unless root
-    visited = []
-    stack = [root]
+  return [] unless root
+  visited = []
+  stack = [root]
 
-    until stack.empty?
-      node = stack.last
-      if node.left && !visited.include?(node.left)
-          stack << node.left
-      else
-        visited << stack.pop
-        stack << node.right if node.right
-      end
+  until stack.empty?
+    node = stack.last
+
+    if node.left && !visited.include?(node.left)
+        stack << node.left
+    else
+      visited << stack.pop
+      stack << node.right if node.right
     end
+  end
 
-    visited.map(&:val)
+  visited.map(&:val)
 end

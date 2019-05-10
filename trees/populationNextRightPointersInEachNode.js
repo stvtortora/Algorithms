@@ -42,7 +42,7 @@ var connect = (root) => {
 
         node.next = nextNode;
       }
-        helper(nextLevel)
+      helper(nextLevel)
     }
   }
 

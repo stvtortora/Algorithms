@@ -12,15 +12,15 @@
 // Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
 
 const missingNumber = (nums) => {
-    let seen = {};
+  let seen = {};
 
-    nums.forEach(num => {
-        seen[num] = true;
-    })
+  nums.forEach(num => {
+    seen[num] = true;
+  })
 
-    for(let i = 0; i <= nums.length; i++) {
-        if (!seen[i]) {
-            return i;
-        }
+  for(let i = 0; i <= nums.length; i++) {
+    if (!seen[i]) {
+      return i;
     }
+  }
 };

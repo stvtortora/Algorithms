@@ -16,16 +16,16 @@ const generateParenthesis = function(n) {
 
 const findCombos = (openRem, closeRem, str) => {
     if(openRem === 0 && closeRem === 0){
-        return [str];
+      return [str];
     }
 
     let result = [];
 
     if(openRem < closeRem) {
-        result = result.concat(findCombos(openRem, closeRem - 1, str + ')'));
+      result = result.concat(findCombos(openRem, closeRem - 1, str + ')'));
     }
     if(openRem > 0){
-        result = result.concat(findCombos(openRem - 1, closeRem, str + '('));
+      result = result.concat(findCombos(openRem - 1, closeRem, str + '('));
     }
     return result;
 }

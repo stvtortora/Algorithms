@@ -28,15 +28,15 @@ var search = (nums, target) => {
   let righAns = null;
 
   if(midVal === target){
-      return midIdx;
+    return midIdx;
   }
 
   if((target < midVal && ((nums[midIdx - 1] === undefined) || nums[midIdx - 1] <= midVal))|| target > midVal){
-       leftAns = search(leftSide, target)
+     leftAns = search(leftSide, target)
   }
 
   if((target > midVal && ((nums[midIdx + 1] === undefined) || nums[midIdx + 1] >= midVal)) || target < midVal){
-      rightAns = search(rightSide, target);
+    rightAns = search(rightSide, target);
   }
 
   if(leftAns !== null && leftAns > -1){

@@ -16,25 +16,25 @@
 
 
 const arrayNesting = (nums) => {
-    let longest = 0;
+  let longest = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        let num = nums[i];
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
 
-        if (num !== null) {
-            nums[i] = null;
-            let idx = num;
-            let length = 1;
+    if (num !== null) {
+      nums[i] = null;
+      let idx = num;
+      let length = 1;
 
-            while (idx !== i) {
-                length++;
-                const lastIdx = idx;
-                idx = nums[idx];
-                nums[lastIdx] = null;
-            }
-            longest = length > longest ? length : longest;
-        }
+      while (idx !== i) {
+        length++;
+        const lastIdx = idx;
+        idx = nums[idx];
+        nums[lastIdx] = null;
+      }
+      longest = length > longest ? length : longest;
     }
+  }
 
-    return longest;
+  return longest;
 };

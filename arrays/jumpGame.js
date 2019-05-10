@@ -17,17 +17,17 @@
 //              jump length is 0, which makes it impossible to reach the last index.
 
 const canJump = (nums) => {
-    let maxReach = 0;
-    const target = nums.length - 1;
+  let maxReach = 0;
+  const target = nums.length - 1;
 
-    for (let i = 0; i < nums.length; i++) {
-      if (i > maxReach) { break }
+  for (let i = 0; i < nums.length; i++) {
+    if (i > maxReach) { break }
 
-      const thisMaxReach = i + nums[i];
-      maxReach = thisMaxReach > maxReach ? thisMaxReach : maxReach;
+    const thisMaxReach = i + nums[i];
+    maxReach = thisMaxReach > maxReach ? thisMaxReach : maxReach;
 
-      if (maxReach >= target) { return true }
-    }
+    if (maxReach >= target) { return true }
+  }
 
-    return false;
+  return false;
 };

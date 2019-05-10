@@ -15,33 +15,34 @@
 // ]
 
 const zigzagLevelOrder = (root) => {
-    if(root) {
-      return helper([root], false)
-    }
-    return [];
+  if(root) {
+    return helper([root], false)
+  }
+  return [];
 };
 
 const helper = (level, forward) => {
-    if (level.length) {
-        const levelValues = [];
-        const nextLevel = [];
+  if (level.length) {
+    const levelValues = [];
+    const nextLevel = [];
 
-        level.forEach(node => {
-            if (forward) {
-                levelValues.push(node.val);
-            } else {
-                levelValues.unshift(node.val);
-            }
-            if (node.right) {
-               nextLevel.push(node.right);
-            }
-            if (node.left) {
-              nextLevel.push(node.left);
-            }
-        })
+    level.forEach(node => {
+      if (forward) {
+        levelValues.push(node.val);
+      }
+      else {
+        levelValues.unshift(node.val);
+      }
+      if (node.right) {
+       nextLevel.push(node.right);
+      }
+      if (node.left) {
+        nextLevel.push(node.left);
+      }
+    })
 
-        return [levelValues].concat(helper(nextLevel, !forward));
-    }
+    return [levelValues].concat(helper(nextLevel, !forward));
+  }
 
-    return [];
+  return [];
 }

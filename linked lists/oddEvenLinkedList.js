@@ -24,20 +24,20 @@ const oddEvenList = (head) => {
     let prev = null;
 
     while(node) {
-        let nextNode = node.next;
-        if (count % 2 !== 0) {
-            lastOdd.next = node;
-            node.next = firstEven;
-            prev.next = nextNode;
-            lastOdd = node;
-        }
-        if (count === 2) {
-            firstEven = node;
-        }
-        prev = node;
-        node = nextNode;
+      let nextNode = node.next;
+      if (count % 2 !== 0) {
+        lastOdd.next = node;
+        node.next = firstEven;
+        prev.next = nextNode;
+        lastOdd = node;
+      }
+      if (count === 2) {
+        firstEven = node;
+      }
+      prev = node;
+      node = nextNode;
 
-        count++;
+      count++;
     }
 
     return head;

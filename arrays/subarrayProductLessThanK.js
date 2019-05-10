@@ -14,23 +14,23 @@
 // 0 <= k < 10^6.
 
 const numSubarrayProductLessThanK = (nums, k) => {
-    let count = 0;
-    let prod = 1;
-    let startP = 0;
-    let endP = 0;
+  let count = 0;
+  let prod = 1;
+  let startP = 0;
+  let endP = 0;
 
-    while (endP < nums.length && startP < nums.length) {
-        const num = nums[endP];
+  while (endP < nums.length && startP < nums.length) {
+    const num = nums[endP];
 
-        if (prod * num < k) {
-            prod *= num;
-            count += endP - startP + 1;
-            endP++;
-        } else {
-            prod /= nums[startP];
-            startP++;
-        }
+    if (prod * num < k) {
+      prod *= num;
+      count += endP - startP + 1;
+      endP++;
+    } else {
+      prod /= nums[startP];
+      startP++;
     }
+  }
 
-    return count;
+  return count;
 };

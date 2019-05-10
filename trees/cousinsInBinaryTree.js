@@ -33,16 +33,16 @@
 //
 
 var isCousins = function(root, x, y) {
-    if (root.val === x || root.val === y) {
-        return false;
-    }
+  if (root.val === x || root.val === y) {
+    return false;
+  }
 
-    let xResult = getDepthWithParent(x, root, null, 0);
+  let xResult = getDepthWithParent(x, root, null, 0);
 
 
-    let yResult = getDepthWithParent(y, root, null, 0);
+  let yResult = getDepthWithParent(y, root, null, 0);
 
-    return yResult.depth === xResult.depth && yResult.parent !== xResult.parent;
+  return yResult.depth === xResult.depth && yResult.parent !== xResult.parent;
 };
 
 const getDepthWithParent = (target, node, parent, depth) => {

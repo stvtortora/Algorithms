@@ -31,17 +31,17 @@
 // The value of each node will only be 0 or 1.
 
 const pruneTree = (root) => {
-    if (root) {
-         const leftSub = pruneTree(root.left);
-         const rightSub = pruneTree(root.right);
+  if (root) {
+   const leftSub = pruneTree(root.left);
+   const rightSub = pruneTree(root.right);
 
-        if (leftSub || rightSub || root.val === 1) {
-            root.left = leftSub;
-            root.right = rightSub;
+   if (leftSub || rightSub || root.val === 1) {
+    root.left = leftSub;
+    root.right = rightSub;
 
-            return root;
-        }
-    }
+    return root;
+   }
+  }
 
-    return null;
+  return null;
 };

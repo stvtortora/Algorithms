@@ -16,29 +16,29 @@
 // Output: 0
 
 const findMin = (nums) => {
-    const helper = (nums) => {
-        if (nums.length <= 1) {
-            return null;
-        }
-
-        const midIdx = Math.floor(nums.length / 2);
-        const midEl = nums[midIdx];
-        const oneBefore = nums[midIdx - 1];
-        const oneAfter = nums[midIdx + 1];
-
-        if (typeof oneAfter !== 'undefined' && oneAfter < midEl) {
-            return oneAfter;
-        }
-        
-        if (typeof oneBefore !== 'undefined' && oneBefore > midEl) {
-            return midEl;
-        }
-
-        const checkLeft = helper(nums.slice(0, midIdx));
-        const checkRight = helper(nums.slice(midIdx + 1));
-        return checkLeft !== null ? checkLeft : checkRight;
+  const helper = (nums) => {
+    if (nums.length <= 1) {
+      return null;
     }
 
-    const ans = helper(nums);
-    return ans !== null ? ans : nums[0];
+    const midIdx = Math.floor(nums.length / 2);
+    const midEl = nums[midIdx];
+    const oneBefore = nums[midIdx - 1];
+    const oneAfter = nums[midIdx + 1];
+
+    if (typeof oneAfter !== 'undefined' && oneAfter < midEl) {
+      return oneAfter;
+    }
+
+    if (typeof oneBefore !== 'undefined' && oneBefore > midEl) {
+      return midEl;
+    }
+
+    const checkLeft = helper(nums.slice(0, midIdx));
+    const checkRight = helper(nums.slice(midIdx + 1));
+    return checkLeft !== null ? checkLeft : checkRight;
+  }
+
+  const ans = helper(nums);
+  return ans !== null ? ans : nums[0];
 };

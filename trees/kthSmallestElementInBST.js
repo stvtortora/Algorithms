@@ -25,23 +25,23 @@
 // Output: 3
 
 const kthSmallest = (root, k) => {
-    if (root === null) { return null }
-    let lastTraversed = null;
-    let count = 0;
-    let stack = [];
-    let node = root;
+  if (root === null) { return null }
+  let lastTraversed = null;
+  let count = 0;
+  let stack = [];
+  let node = root;
 
-    while (count < k) {
-      if (node) {
-        stack.push(node);
-        node = node.left;
-      }
-      else {
-        lastTraversed = stack.pop();
-        count++;
-        node = lastTraversed.right;
-      }
+  while (count < k) {
+    if (node) {
+      stack.push(node);
+      node = node.left;
     }
+    else {
+      lastTraversed = stack.pop();
+      count++;
+      node = lastTraversed.right;
+    }
+  }
 
-    return lastTraversed.val;
+  return lastTraversed.val;
 };

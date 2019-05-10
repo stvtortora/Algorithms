@@ -13,24 +13,24 @@ const addTwoNumbers = (l1, l2) => {
 };
 
 const helper = (l1, l2, carry) => {
-    if(!l1 && !l2 && !carry){
-        return null;
-    }
+  if(!l1 && !l2 && !carry){
+    return null;
+  }
 
-    let sum = 0;
-    if(l1){
-        sum += l1.val;
-    }
-    if(l2){
-        sum+= l2.val;
-    }
-    sum += carry;
+  let sum = 0;
+  if(l1){
+    sum += l1.val;
+  }
+  if(l2){
+    sum+= l2.val;
+  }
+  sum += carry;
 
 
-    let node = new ListNode(sum % 10);
-    carry = sum < 10 ? 0 : 1;
-    l1 = l1 ? l1.next : null;
-    l2 = l2 ? l2.next : null;
-    node.next = helper(l1, l2, carry);
-    return node;
+  let node = new ListNode(sum % 10);
+  carry = sum < 10 ? 0 : 1;
+  l1 = l1 ? l1.next : null;
+  l2 = l2 ? l2.next : null;
+  node.next = helper(l1, l2, carry);
+  return node;
 };

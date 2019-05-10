@@ -17,17 +17,18 @@
 // Explanation: All root-to-leaf paths are: 1->2->5, 1->3
 
 const binaryTreePaths = (root) => {
-    if (!root) {
-        return [];
-    }
-    if (!root.left && !root.right) {
-        return [root.val.toString()];
-    }
+  if (!root) {
+    return [];
+  }
+  if (!root.left && !root.right) {
+    return [root.val.toString()];
+  }
 
 
-    const childPaths = binaryTreePaths(root.left).concat(binaryTreePaths(root.right));
-    const newPaths = childPaths.map(path => {
-        return root.val.toString() + '->' + path;
-    })
-    return newPaths;
+  const childPaths = binaryTreePaths(root.left).concat(binaryTreePaths(root.right));
+  const newPaths = childPaths.map(path => {
+    return root.val.toString() + '->' + path;
+  })
+  
+  return newPaths;
 };

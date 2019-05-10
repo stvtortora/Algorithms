@@ -47,7 +47,7 @@
 // The given board contain only digits 1-9 and the character '.'.
 // The given board size is always 9x9.
 
-var isValidSudoku = function(board) {
+const isValidSudoku = (board) => {
   const rows = {'0': {}, '1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}};
   const cols = {'0': {}, '1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}};
   const squares = {'0': {}, '1': {}, '2': {}, '3': {}, '4': {}, '5': {}, '6': {}, '7': {}, '8': {}};
@@ -63,30 +63,31 @@ var isValidSudoku = function(board) {
       if(rows[rowNum][num] || cols[colNum][num] || squares[squareNum][num]){
         return false;
       }
-      
+
       rows[rowNum][num] = true;
       cols[colNum][num] = true;
       squares[squareNum][num] = true;
       }
     }
   }
+
   return true;
 };
 
 const determineSquareNum = (rowNum, colNum) => {
-    if(rowNum < 3){
-      if(colNum < 3){return 0;}
-      if(colNum < 6){return 1;}
-      return 2;
-    }
+  if(rowNum < 3){
+    if(colNum < 3){return 0;}
+    if(colNum < 6){return 1;}
+    return 2;
+  }
 
-    if(rowNum < 6){
-      if(colNum < 3){return 3;}
-      if(colNum < 6){return 4;}
-      return 5;
-    }
+  if(rowNum < 6){
+    if(colNum < 3){return 3;}
+    if(colNum < 6){return 4;}
+    return 5;
+  }
 
-    if(colNum < 3){return 6;}
-    if(colNum < 6){return 7;}
-    return 8;
+  if(colNum < 3){return 6;}
+  if(colNum < 6){return 7;}
+  return 8;
 }

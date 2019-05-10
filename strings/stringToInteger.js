@@ -63,16 +63,19 @@ const myAtoi = str) => {
     if(key[char] || key[char] === 0){
       numbers.push(key[char]);
     }
+
     else if(!numbers.length){
 
       if(char === '-' || char === '+'){
         if(negative !== null) {return 0;}
         negative = char === '-' ? true : false;
        }
+
        else if(char !== ' ' || negative !== null){
         return 0;
       }
     }
+    
     else {
       break;
     }

@@ -28,49 +28,59 @@
 // 0 <= K <= 1000.
 
 const distanceK = (root, target, K) => {
-    const result = [];
+  const result = [];
 
-    const helper = (node, target, K) => {
-        if(node){
-            if(node === target){
-                if(K === 0){
-                    result.push(node.val);
-                    return null;
-                } else {
-                findAncestors(node.left, 1, K);
-                findAncestors(node.right, 1, K);
-                return 1;
-                }
-            }
-
-            let leftDistance = helper(node.left, target, K);
-            let rightDistance = helper(node.right, target, K);
-            if(leftDistance || rightDistance){
-                let distance = leftDistance ? leftDistance : rightDistance;
-                let nextNode = leftDistance ? node.right : node.left;
-                if(distance === K){
-                    result.push(node.val);
-                }else{
-                    findAncestors(nextNode, distance + 1, K);
-                    return distance + 1;
-                }
-            }
+  const helper = (node, target, K) => {
+    if(node){
+      if(node === target){
+        if(K === 0){
+          result.push(node.val);
+          return null;
         }
-      return null;
+        else {
+          findAncestors(node.left, 1, K);
+          findAncestors(node.right, 1, K);
+          return 1;
+        }
+      }
+
+      let leftDistance = helper(node.left, target, K);
+      let rightDistance = helper(node.right, target, K);
+
+      if(leftDistance || rightDistance){
+        let distance = leftDistance ? leftDistance : rightDistance;
+        let nextNode = leftDistance ? node.right : node.left;
+
+        if(distance === K){
+          result.push(node.val);
+        }
+
+        else{
+          findAncestors(nextNode, distance + 1, K);
+          return distance + 1;
+        }
+      }
     }
 
-    const findAncestors = (node, distance, K) => {
-        if(node){
-            if(distance === K){
-                result.push(node.val);
-            }else{
-            findAncestors(node.left, distance + 1, K);
-            findAncestors(node.right, distance + 1, K);
-            }
-        }
-        return;
+    return null;
+  }
+
+  const findAncestors = (node, distance, K) => {
+    if(node){
+
+      if(distance === K){
+        result.push(node.val);
+      }
+
+      else{
+        findAncestors(node.left, distance + 1, K);
+        findAncestors(node.right, distance + 1, K);
+      }
     }
 
-    helper(root, target, K);
-    return result;
+    return;
+  }
+
+  helper(root, target, K);
+  return result;
 };

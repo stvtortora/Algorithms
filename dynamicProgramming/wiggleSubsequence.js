@@ -28,8 +28,8 @@ const wiggleMaxLength = (nums) => {
     let num = nums[i];
 
     if (typeof positive === 'undefined' && nums[0] - num !== 0) {
-        positive = nums[0] - num > 0 ? false : true;
-        sequence.push(num);
+      positive = nums[0] - num > 0 ? false : true;
+      sequence.push(num);
     }
 
     else if (typeof positive !== 'undefined'){

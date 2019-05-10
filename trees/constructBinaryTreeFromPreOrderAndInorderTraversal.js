@@ -16,30 +16,32 @@
 //    15   7
 
 const buildTree = (preorder, inorder) => {
-    if(preorder.length) {
-        const root = new TreeNode(preorder[0]);
+  if(preorder.length) {
+    const root = new TreeNode(preorder[0]);
 
-        let leftInorder = inorder.slice(0, inorder.indexOf(preorder[0]));
-        let leftPreorder = [];
-        preorder.forEach(el => {
-          if(leftInorder.includes(el)){
-            leftPreorder.push(el)
-          }
-        })
+    let leftInorder = inorder.slice(0, inorder.indexOf(preorder[0]));
+    let leftPreorder = [];
 
-        root.left = buildTree(leftPreorder, leftInorder);
+    preorder.forEach(el => {
+      if(leftInorder.includes(el)){
+        leftPreorder.push(el)
+      }
+    })
 
-        let rightInorder = inorder.slice(inorder.indexOf(preorder[0]) + 1);
-        console.log(rightInorder)
-        let rightPreorder = [];
-        preorder.forEach(el => {
-          if(rightInorder.includes(el)){
-            rightPreorder.push(el)
-          }
-        })
-        root.right = buildTree(rightPreorder, rightInorder);
-        return root;
-    }
+    root.left = buildTree(leftPreorder, leftInorder);
 
-    return null;
+    let rightInorder = inorder.slice(inorder.indexOf(preorder[0]) + 1);
+    let rightPreorder = [];
+
+    preorder.forEach(el => {
+      if(rightInorder.includes(el)){
+        rightPreorder.push(el)
+      }
+    })
+
+    root.right = buildTree(rightPreorder, rightInorder);
+    return root;
+  }
+
+  return null;
 };
